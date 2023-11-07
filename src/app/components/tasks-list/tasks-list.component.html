@@ -1,0 +1,52 @@
+<div *ngIf="tasks.length > 0" class="container mx-auto py-4" >
+    <div  class="w-full" >
+        <h2 class="text-xl py-3 mb-3 border-b-2 ">Todo List</h2>
+        <ul>
+            <ng-container *ngFor="let task of tasks">
+                <li *ngIf="!task.completed" class="text-gray-800 flex justify-between p-4 mb-4 rounded-lg w-full"
+                        [ngClass]="{'bg-green-500':task.completed , 'bg-gray-100' :!task.completed}">
+                        <div [ngClass]="{'line-through':task.completed , 'no-underline' :!task.completed}">{{task.name}}</div>
+                        <div class="flex items-center justify-end">
+                            <span (click)="removeTask(task)" style="cursor: pointer">
+                                <svg class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </span>
+                            <span (click)="toggleCompleted(task)" style="cursor: pointer">
+                                <svg class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" [ngClass]="{'text-green-500':!task.completed , 'text-gray-100' :task.completed}">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </li>
+            </ng-container>
+        </ul>
+        <h2 class="text-xl py-3 mb-3 border-b-2 ">Finished List</h2>
+        <ul>
+            <ng-container *ngFor="let task of tasks">
+                <li *ngIf="task.completed" class="text-gray-800 flex justify-between p-4 mb-4 rounded-lg w-full"
+                        [ngClass]="{'bg-green-500':task.completed , 'bg-gray-100' :!task.completed}">
+                        <div [ngClass]="{'line-through':task.completed , 'no-underline' :!task.completed}">{{task.name}}</div>
+                        <div class="flex items-center justify-end">
+                            <span (click)="removeTask(task)" style="cursor: pointer">
+                                <svg class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </span>
+                            <span (click)="toggleCompleted(task)" style="cursor: pointer">
+                                <svg class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" [ngClass]="{'text-green-500':!task.completed , 'text-gray-100' :task.completed}">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </li>
+            </ng-container>
+        </ul>
+    </div>
+</div>

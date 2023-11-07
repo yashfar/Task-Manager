@@ -1,0 +1,23 @@
+<div class="container mx-auto py-10 w-[400px]">
+    <form action="" class="w-full mx-w-sm">
+        <div class="flex items-center border-b-2 border-teal-500 py-2">
+            <input 
+                [(ngModel)]="newTask"
+                type="text"
+                name="newTask"
+                class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                placeholder="Add task"
+            />
+            <button
+                type="button"
+                (click)="addTask()"
+                class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+            >
+             Add
+            </button>
+        </div>
+    </form>
+
+    <app-tasks-list [tasks]="tasks" ></app-tasks-list>
+</div>
+
